@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send JSON Data to App</title>
+</head>
+<body>
+    <h1>Send JSON Data to App</h1>
+    
+    <button onclick="sendJSONDataToApp()">Send JSON Data</button>
+    
+    <script type="text/javascript">
+        function sendJSONDataToApp() {
+            // JSON 数据
+            var jsonData = {
+                "key1": "value1",
+                "key2": "value2",
+         
+            };
+            
+            // 将 JSON 对象转换为字符串
+            var jsonString = JSON.stringify(jsonData);
+            
+            // 对字符串进行 URL 编码
+            var encodedData = encodeURIComponent(jsonString);
+            
+            // 使用自定义的 URL Scheme 发送消息给应用程序
+            window.location.href = "myapp://callback?data=" + encodedData;
+        }
+    </script>
+</body>
+</html>
